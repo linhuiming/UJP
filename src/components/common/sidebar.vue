@@ -68,7 +68,7 @@
     }
     @keyframes bounce-in {
         0% {
-            transform:translateY(-100%);
+            transform:translateY(-50%);
             opacity: 0;
         }
         100% {
@@ -82,8 +82,9 @@
         top:60px;
         width: 100%;
         height:300px;
-        z-index: 1;
+        z-index: 9;
         overflow:scroll;
+        background:#fff;
     }
     *{
         list-style: none;

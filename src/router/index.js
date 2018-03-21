@@ -14,6 +14,7 @@ import Pay from "../components/pay"		        //付款
 Vue.use(Router)
 
 export default new Router({
+  mode:"history",
   routes: [
     {
       path: '/home',
@@ -45,6 +46,7 @@ export default new Router({
     },
     {
       path: '/detail/:id',
+      name: 'detail',
       component:Detail
     },
     {

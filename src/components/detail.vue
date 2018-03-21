@@ -7,13 +7,14 @@
   import axios from "axios";
 
   export default{
-		name:'home',
+		name:'detail',
 		data(){
 			return{
          
 			}
 		},
     mounted(){
+      console.log(this.$route.params);
       axios.get("/api/v5/home").then(res =>{
           
       }).catch(error =>{
