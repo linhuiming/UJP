@@ -1,23 +1,46 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div>
+    <navbar>
+      <i class="iconfont icon-search" @click="isshow=!isshow"></i>
+
+    </navbar>
+    <sidebar :myshow="isshow" @event="isshow=false"></sidebar>
+    <section>
+      <router-view></router-view>
+    </section>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
+  import sidebar from "./components/common/sidebar"
+  import navbar from "./components/common/navbar"
+
+  export default {
+  name: 'App',
+    data(){
+      return{
+          isshow:false
+      }
+    },
+    components:{
+      sidebar,
+      navbar
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  ul li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  img{
+    border: none;
+  }
 </style>

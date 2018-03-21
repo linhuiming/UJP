@@ -13,15 +13,15 @@
          
 			}
 		},
-//    mounted(){
-//      axios.get("/api/v5/home").then(res =>{
-//
-//      }).catch(error =>{
-//
-//      })
-//
-//    },
-//
+    mounted(){
+      axios.get("/api/v5/home").then(res =>{
+          
+      }).catch(error =>{
+
+      })
+    
+    },
+    
 	}
 </script>
 

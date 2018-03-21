@@ -7,6 +7,9 @@ import Cart from "../components/cart"			//购物车
 import List from "../components/list"			//列表
 import Login from "../components/login"			//登录
 import Detail from "../components/detail"		//详情
+import Mine from "../components/mine"		    //我的
+import Pay from "../components/pay"		        //付款
+
 
 Vue.use(Router)
 
@@ -27,9 +30,18 @@ export default new Router({
     {
       path: '/list',
       component: List
-    },{
+    },
+    {
       path: '/login',
       component: Login
+    },
+    {
+      path: '/mine',
+      component: Mine
+    },
+    {
+      path: '/pay',
+      component: Pay
     },
     {
       path: '/detail/:id',
