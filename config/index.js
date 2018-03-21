@@ -15,6 +15,11 @@ module.exports = {
         target:'https://m.ujipin.com',
         host:'m.ujipin.com',
         changeOrigin:true
+      },
+      '/v4':{
+        target:'https://m.ujipin.com',
+        host:'m.ujipin.com',
+        changeOrigin:true      
       }
     },
 
