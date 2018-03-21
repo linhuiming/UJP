@@ -1,10 +1,12 @@
 <template>
-	
+	<div class="logindiv">
+        <img src="../assets/login_01.jpg" alt="">
+    </div>
 </template>
 
 <script type="text/ecmascript-6">
  
-  import axios from "axios";
+
 
   export default{
 		name:'home',
@@ -13,14 +15,7 @@
          
 			}
 		},
-    mounted(){
-      axios.get("/api/v5/home").then(res =>{
-          
-      }).catch(error =>{
 
-      })
-    
-    },
     
 	}
 </script>

@@ -82,8 +82,9 @@
         top:60px;
         width: 100%;
         height:300px;
-        z-index: 1;
+        z-index: 9;
         overflow:scroll;
+        background: white;
     }
     *{
         list-style: none;
