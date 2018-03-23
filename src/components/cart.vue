@@ -13,15 +13,10 @@
          
 			}
 		},
-    mounted(){
-      axios.get("/api/v5/home").then(res =>{
-          
-      }).catch(error =>{
-
-      })
-    
-    },
-    
+		beforeRouteEnter (to, from, next) {
+		    console.log(1111111);
+		    next();
+		 },
 	}
 </script>
 
