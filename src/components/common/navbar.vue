@@ -5,8 +5,8 @@
         </span>
         <div class="right">
             <slot></slot>
-            <i class="iconfont icon-account"></i>
-            <i class="iconfont icon-cart"></i>
+            <i class="iconfont icon-account" @click="gologin"></i>
+            <i class="iconfont icon-cart" @click="cart"></i>
         </div>
     </nav>
 </template>
@@ -19,9 +19,17 @@
 		name:'navbar',
 		data(){
 			return{
-         
+                
 			}
 		},
+        methods:{
+            gologin(){
+                this.$router.push('/login')
+            },
+            cart(){
+                this.$router.push('/cart')
+            }
+        }
 
     
 	}

@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath:'/',
     proxyTable: {
       '/api':{
         target:'https://m.ujipin.com',
@@ -20,6 +20,11 @@ module.exports = {
         target:'https://m.ujipin.com',
         host:'m.ujipin.com',
         changeOrigin:true      
+      },
+      '/v10':{
+        target:'http://localhost:3000',
+        host:'localhost:3000',
+        changeOrigin:true            
       }
     },
 

@@ -1,9 +1,9 @@
 <template>
       <div>
      <swipe class="my-swipe">
-     <swipe-item v-for="data in looplist">
-      <img :src='data.cover'/>
-     </swipe-item>
+       <swipe-item v-for="data in looplist" :key="data.id">
+        <img :src='data.cover'/><!--.cover-->
+       </swipe-item>
      </swipe>   
       
         <ul>
@@ -15,7 +15,7 @@
 
       <ul>
         <li class="pic">
-        <img :src="pic2.cover"/>
+        <img :src="pic2.cover"><!--.cover-->
         </li>
       </ul>
 
@@ -25,32 +25,30 @@
         <li class="seckilling">
             <h3>秒杀专区</h3>
         	<p>{{time.title}}</p>
-
-        	<p :endTime="endTime" :callback="callback" :endText="endText">{{content}}</p>
-
         </li>
       </ul>
       <ul >
-        <li><img :src="headset.cover" class="pic3"/></li>
+        <li><img :src="headset.cover" class="pic3"/></li><!--.cover-->
      </ul>
-
+<!--***********************************************罗文延修改**************************************************-->
      <ul class="voicebox">
      	<li v-for="(data,index) in headsets">
-        <img :src="headsets[index].thumbnail" />
+        <img :src="headsets[index].thumbnail" /><!--.thumbnail-->
         <h3>{{headsets[index].goods_name}}</h3>
-        <p>￥{{headsets[index].goods_price}}<span>￥{{headsets[index].goods_price}}</span></p>
+        <p>￥{{headsets[index].goods_price}}<span>￥{{headsets[index].market_price}}</span></p>
      	</li>
      </ul>
         <ul >
         <li><img :src="home.cover" class="pic3"/></li>
      </ul>
      <ul class="voicebox">
-     	<li v-for="(data,index) in headsets">
-        <img :src="homes[index].thumbnail" />
+     	<li v-for="(data,index) in homes">
+        <img :src="homes[index].thumbnail" /><!--.thumbnail-->
         <h3>{{homes[index].goods_name}}</h3>
-        <p>￥{{homes[index].goods_price}}<span>￥{{headsets[index].goods_price}}</span></p>
+        <p>￥{{homes[index].goods_price}}<span>￥{{headsets[index].market_price}}</span></p>
      	</li>
      </ul>
+<!--***********************************************罗文延修改**************************************************-->
      <div v-for="(data,index) in girl" class="girl">
 
      	<p class="title">{{girl[index].name}}</p>
@@ -81,7 +79,7 @@
      export default{
       name:"home",
       data(){
-        return{
+        return {
        looplist:[],
        tablist:[],
        pic2:[],
@@ -91,15 +89,16 @@
        headsets:[],
        home:[],
        homes:[],
-       girl:[],
+       girl:[]
        
        //存放我循环的数组
         }
       },
       mounted(){
          axios.get("/api/v5/home").then(res=>{
-          //console.log(res.data);//返回的数据
+          // console.log(res.data.data.splash_list);//返回的数据
           this.looplist =  res.data.data.splash_list;
+         
          }).catch(error=>{
 
          })
@@ -107,17 +106,21 @@
          fetch("/api/v5/home").then(res=>res.json())
          .then(res=>{
           this.tablist = res.data.activity_list[0].tab_list;
-          this.pic2 = res.data.activity_list[1];
-          this.time = res.data.activity_list[2];
+          this.pic2 = res.data.activity_list[0];
+          this.time = res.data.activity_list[1];
           this.number = res.time;
-          this.headset = res.data.activity_list[3];
-          this.headsets = res.data.activity_list[3].goods_list;
-          this.home = res.data.activity_list[4];
-          this.homes = res.data.activity_list[4].goods_list;
-          this.girl = res.data.tag_list
+          this.headset = res.data.activity_list[1];
+
+          console.log(res.data.activity_list[1].goods_list);
+          this.headsets = res.data.activity_list[1].goods_list;
+
+          this.home = res.data.activity_list[2];
+          this.homes = res.data.activity_list[3].goods_list;
+          this.girl = res.data.tag_list;
  
          })
-          this.countdowm(this.endTime)
+
+
          // fetch("/api/v5/home").then(res=>res.json())
          // .then(res=>{
          //  console.log(res.data.activity_list[1])
