@@ -60,12 +60,12 @@
         <div class="text">商品属性</div>
         <div class="propertytable">
           <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr v-for="data in dataattributes">
+            <tr v-for="(data,key) of dataattributes">
               <td class="title1" >
-                净重
+                {{key}}
               </td>
               <td class="con" >
-                {{dataattributes.净重}}
+                {{data}}
               </td>
             </tr>
 
@@ -180,17 +180,18 @@
          dataservices:[],
          databrand:[],
          dataattributes:[],
-          dataslices:[],
-        databasetips:[],
-        datacomments:[],
-        isshow:false,
-        dataproducts:[],
+         dataslices:[],
+         databasetips:[],
+         datacomments:[],
+         isshow:false,
+         dataproducts:[],
 			}
 		},
     mounted(){
       axios.get(`/api/v4/goods/${this.$route.params.id}`).then(res =>{
-         console.log(res.data.data.attributes);
-         this.looplist = res.data.data.splash;
+        console.log(res.data.data.attributes);
+        console.log(res.data.data.attributes.尺寸)
+        this.looplist = res.data.data.splash;
         this.database = res.data.data;
         this.dataservices = res.data.data.services;
         this.databrand =res.data.data.brand;
